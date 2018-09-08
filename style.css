@@ -71,14 +71,14 @@ body {
 .display__time-left{
 	display:flex;
 	align-items: center;
-	padding: 120px;
-	width: 500px;
+	padding: 50px;
+	width: 400px;
 	font-weight: 500;
 	font-size: 14rem;
 	margin: 0;
 	color:white;
 	text-shadow:4px 4px 0 rgba(0,0,0,0.05);
-	height: 500px;
+	height: 400px;
 	justify-content: center;
 	border: 10px solid #fff;
 	border-radius: 50%;

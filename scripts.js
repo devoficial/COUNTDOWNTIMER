@@ -6,6 +6,7 @@ const btns = document.querySelectorAll("[data-time]");
 function timer(seconds){
 	// clear the existing timer
 	clearInterval(countDown);
+	endTime.textContent = `Your time ends `;
 	const now  = Date.now();
 	const time =  now + seconds * 1000;
 	console.log({now, time});
@@ -13,7 +14,7 @@ function timer(seconds){
 	displayEndTime(time);
 
 	countDown = setInterval(() => {
-		const secondsLeft =Math.round((time - Date.now()) / 1000);
+		const secondsLeft = Math.round((time - Date.now()) / 1000);
 		// check when to stop
 		if(secondsLeft < 0){
 			clearInterval(countDown);
@@ -38,7 +39,7 @@ function displayEndTime(timestamp){
 	const hoursIn12f = hours > 12 ?`0${hours -12}`: hours;
 	const minsIn12f = minutes < 10 ?`0${minutes}`: minutes;
 	const secsIn12f = secs < 10 ?`0${secs}`:secs;
-	endTime.textContent = `Your time ends at - ${hoursIn12f}:${minsIn12f}:${secsIn12f}`;
+	endTime.textContent += `- ${hoursIn12f}:${minsIn12f}:${secsIn12f}`;
 }
 
 function startTimer(e){
