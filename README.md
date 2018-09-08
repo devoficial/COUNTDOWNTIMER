@@ -5,7 +5,8 @@
 ## Features include
 
 - Select your countdown timer from nav or input
-- Display count down time
+- Display count down time left
+- Display count down time end
 
 ## Build using
 
