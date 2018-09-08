@@ -1,8 +1,11 @@
 let countDown;
 const timerDisplay = document.querySelector(".display__time-left");
-const endTime =  document.querySelector(".display__end-time")
+const endTime =  document.querySelector(".display__end-time");
+const btns = document.querySelectorAll("[data-time]");
 
-function timer(seconds) {
+function timer(seconds){
+    // clear the existing timer
+    clearInterval(countDown);
     const now  = Date.now();
     const time =  now + seconds * 1000;
     console.log({now, time}); 
@@ -37,3 +40,18 @@ function displayEndTime(timestamp){
     const secsIn12f = secs < 10 ?`0${secs}`:secs;
     endTime.textContent = `Your time ends at - ${hoursIn12f}:${minsIn12f}:${secsIn12f}`;
 }
+
+function startTimer(e){
+    const secs = parseInt(this.dataset.time);
+    timer(secs)
+}
+
+
+[...btns].forEach(btn => btn.addEventListener("click", startTimer));
+
+document.customForm.addEventListener("submit",function(e){
+    e.preventDefault();
+    const mins = this.minutes.value * 60;
+    this.reset();
+    timer(mins);
+});
